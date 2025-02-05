@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Attendance Calculator</h2>
+        
+        <label>Total Class Hours in a Month:</label>
+        <input type="number" id="totalHours" placeholder="Enter total class hours">
+
+        <label>Absent Hours:</label>
+        <input type="number" id="absentHours" placeholder="Enter absent hours">
+
+        <button onclick="calculateAttendance()">Calculate</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
