@@ -1,26 +1,26 @@
 function calculateAttendance() {
-    let totalHours = parseInt(document.getElementById("totalHours").value);
-    let absentHours = parseInt(document.getElementById("absentHours").value);
+    let totalperiods = parseInt(document.getElementById("totalperiods").value);
+    let absentperiods = parseInt(document.getElementById("absentperiods").value);
 
-    if (isNaN(totalHours) || isNaN(absentHours) || totalHours <= 0 || absentHours < 0 || absentHours > totalHours) {
+    if (isNaN(totalperiods) || isNaN(absentperiods) || totalperiods <= 0 || absentperiods < 0 || absentperiods > totalperiods) {
         document.getElementById("result").innerHTML = "⚠️ Please enter valid numbers.";
         return;
     }
 
-    let attendedHours = totalHours - absentHours;
-    let currentAttendance = (attendedHours / totalHours) * 100;
+    let attendedperiods = totalperiods - absentperiods;
+    let currentAttendance = (attendedperiods / totalperiods) * 100;
     currentAttendance = currentAttendance.toFixed(2);
 
-    let maxAbsentFor80 = Math.floor(totalHours * 0.20);
-    let maxAdditionalLeave = maxAbsentFor80 - absentHours;
+    let maxAbsentFor80 = Math.floor(totalperiods * 0.20);
+    let maxAdditionalLeave = maxAbsentFor80 - absentperiods;
 
     let message = `Your Current Attendance: <b>${currentAttendance}%</b><br>`;
 
     if (currentAttendance >= 80) {
-        message += `✅ You can take <b>${maxAdditionalLeave}</b> more hours of leave and stay above 80%.`;
+        message += `✅ You can take <b>${maxAdditionalLeave}</b> more periods of leave and stay above 80%.`;
     } else {
-        let neededAttendance = Math.ceil(totalHours * 0.80) - attendedHours;
-        message += `❌ You need to attend <b>${neededAttendance}</b> more hours to reach 80%.`;
+        let neededAttendance = Math.ceil(totalperiods * 0.80) - attendedperiods;
+        message += `❌ You need to attend <b>${neededAttendance}</b> more periods to reach 80%.`;
     }
 
     document.getElementById("result").innerHTML = message;
